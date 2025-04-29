@@ -12,3 +12,16 @@ function getComputerChoice() {
   // Return computerChoice
   return computerChoice;
 };
+
+
+// Function that returns the user's choice
+function getHumanChoice() {
+  // Create a variable called humanChoice
+  let humanChoice;
+  
+  // Ask usr for a choice of rock paper or scissors and store it in humanChoice
+  humanChoice = prompt(`Please choose rock, paper, or scissors: `);
+  
+  // Return humanChoice
+  return humanChoice;
+  };
