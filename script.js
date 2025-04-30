@@ -23,5 +23,32 @@ function getHumanChoice() {
   humanChoice = prompt(`Please choose rock, paper, or scissors: `);
   
   // Return humanChoice
-  return humanChoice;
-  };
+  return humanChoice.toLowerCase();
+};
+
+// Create variables for humanScore and computerScore and set them to 0
+let humanScore, computerScore = 0;
+
+// Function that plays a single round that takes in computerChoice and humanChoice
+function playRound(computerChoice, humanChoice) {
+  // Make sure that humanChoice is downcase
+
+  // If computerChoice loses to humanChoice then print 'You win!'
+  if (
+    humanChoice === 'rock' && computerChoice === 'scissors' || 
+    humanChoice === 'scissors' && computerChoice === 'paper' ||
+    humanChoice === 'paper' && computerChoice === 'rock') {
+      console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+  } else {
+    console.log('Something is wrong.')
+  }
+  // If computerChoice beats humanChoice then print 'You lose!'
+};
+
+// Tests if playRound is working
+let computerChoice = getComputerChoice();
+console.log(computerChoice);
+
+let humanChoice = getHumanChoice();
+
+playRound(computerChoice, humanChoice);
