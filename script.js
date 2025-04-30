@@ -39,10 +39,16 @@ function playRound(computerChoice, humanChoice) {
     humanChoice === 'scissors' && computerChoice === 'paper' ||
     humanChoice === 'paper' && computerChoice === 'rock') {
       console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
-  } else {
-    console.log('Something is wrong.')
-  }
+    
+  // If computerChoice equals humanChoice then print 'It's a draw!'
+  } else if (humanChoice === computerChoice) {
+    console.log(`The game is a draw!`);
+  
   // If computerChoice beats humanChoice then print 'You lose!'
+  } else {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+  }
+
 };
 
 // Tests if playRound is working
