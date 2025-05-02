@@ -15,13 +15,11 @@ function getComputerChoice() {
 
 
 // Function that returns the user's choice
-function getHumanChoice() {
+function getHumanChoice(test) {
   // Create a variable called humanChoice
-  let humanChoice;
+  let humanChoice = test;
   
-  // Ask usr for a choice of rock paper or scissors and store it in humanChoice
-  humanChoice = prompt(`Please choose rock, paper, or scissors: `);
-  
+  // Ask usr for a choice of rock paper or scissors and store it in humanChoice  
   // Return humanChoice
   return humanChoice.toLowerCase();
 };
@@ -54,26 +52,21 @@ function playRound(computerChoice, humanChoice) {
 
 };
 
-// Runs playround 5 times and announces a winner at the end
-function playGame() {
-  // Run playRound 5 times adding 1 to round each time
-  for (let i = 1; i <= 5; i++) {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-    playRound(computerChoice, humanChoice);
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
 
-    // Print the scores each round
-    console.log(`Computer Score: ${computerScore} | Human Score: ${humanScore}`);
-  }
+rock.addEventListener('click', () => {
+  const computerChoice = getComputerChoice();
+  playRound(computerChoice, 'rock');
+});
 
-  // After 5 rounds print the winner based on who has a heigher score
-  if (humanScore > computerScore) {
-    console.log(`You win! The final score was ${humanScore} to ${computerScore}`);
-  } else if (computerScore > humanScore) {
-    console.log(`You lost! The final score was ${computerScore} to ${humanScore}`);
-  } else {
-    console.log(`The game ended in a draw!`);
-  }
-}
+paper.addEventListener('click', () => {
+  const computerChoice = getComputerChoice();
+  playRound(computerChoice, 'paper');
+});
 
-playGame();
+scissors.addEventListener('click', () => {
+  const computerChoice = getComputerChoice();
+  playRound(computerChoice, 'scissors');
+});
