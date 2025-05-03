@@ -26,6 +26,7 @@ function getHumanChoice(test) {
 
 let humanScore = 0;
 let computerScore = 0;
+let rounds = 0;
 
 // Function that plays a single round that takes in computerChoice and humanChoice
 function playRound(computerChoice, humanChoice) {
@@ -47,6 +48,9 @@ function playRound(computerChoice, humanChoice) {
     computerScore += 1;
     roundResults.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
   };
+
+  rounds += 1;
+  gameResults.textContent = `Player Score: ${humanScore} | Computer Score: ${computerScore}`;
 };
 
 const rock = document.querySelector('#rock');
@@ -54,7 +58,8 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
 let results = document.querySelector('.results');
-const roundResults = document.createElement('span');
+const roundResults = document.createElement('p');
+const gameResults = document.createElement('p');
 
 rock.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
@@ -72,3 +77,4 @@ scissors.addEventListener('click', () => {
 });
 
 results.appendChild(roundResults);
+results.appendChild(gameResults);
