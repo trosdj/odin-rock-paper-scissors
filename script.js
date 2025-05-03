@@ -29,32 +29,32 @@ let computerScore = 0;
 
 // Function that plays a single round that takes in computerChoice and humanChoice
 function playRound(computerChoice, humanChoice) {
-  // Make sure that humanChoice is downcase
-
   // If computerChoice loses to humanChoice then print 'You win!' and adds 1 to humanScore
   if (
     humanChoice === 'rock' && computerChoice === 'scissors' || 
     humanChoice === 'scissors' && computerChoice === 'paper' ||
     humanChoice === 'paper' && computerChoice === 'rock') {
 
-      humanScore += 1;
-      console.log(`You win! ${humanChoice} beats ${computerChoice}.`)
+    humanScore += 1;
+    roundResults.textContent = `You win! ${humanChoice} beats ${computerChoice}.`;
     
   // If computerChoice equals humanChoice then print 'It's a draw!'
   } else if (humanChoice === computerChoice) {
-    console.log(`The game is a draw!`);
+    roundResults.textContent = `The game is a draw!`;
   
   // If computerChoice beats humanChoice then print 'You lose!' and adds 1 to computer score
   } else {
     computerScore += 1;
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+    roundResults.textContent = `You lose! ${computerChoice} beats ${humanChoice}.`;
   };
-
 };
 
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
+
+let results = document.querySelector('.results');
+const roundResults = document.createElement('span');
 
 rock.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
@@ -70,3 +70,5 @@ scissors.addEventListener('click', () => {
   const computerChoice = getComputerChoice();
   playRound(computerChoice, 'scissors');
 });
+
+results.appendChild(roundResults);
